@@ -7,7 +7,7 @@ class AlbumReview::CLI
   end
   
   def list_albums
-    puts "Zuu by Denzel Curry"
+    puts "PLACEHOLDER: Zuu by Denzel Curry"
   end
   
   def menu

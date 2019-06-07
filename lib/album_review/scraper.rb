@@ -3,6 +3,7 @@ class AlbumReview::Scraper
   def self.scrape_index_page(index_url)
     page = Nokogiri::HTML(open(index_url))
     album_array = []
+    
     page.css("div.review").each do |album|
       title =
       artist =
