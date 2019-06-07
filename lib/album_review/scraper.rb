@@ -1,0 +1,2 @@
+class AlbumReview::Scraper
+end

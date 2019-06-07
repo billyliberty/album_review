@@ -1,0 +1,4 @@
+class AlbumReview::CLI 
+  
+end
+  
