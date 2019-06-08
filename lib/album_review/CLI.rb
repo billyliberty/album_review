@@ -9,7 +9,11 @@ class AlbumReview::CLI
   end
   
   def list_albums
-    puts "PLACEHOLDER: Zuu by Denzel Curry"
+    puts "Album List:"
+    @albums = AlbumReview::Albums.all
+    @albums.each.with_index(1) do |album, i|
+      puts "#{i}. #{album}"
+    end
   end
   
   def genre_albums
