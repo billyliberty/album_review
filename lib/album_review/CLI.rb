@@ -2,6 +2,10 @@ class AlbumReview::CLI
   
   def call
     puts "Welcome to the best new albums as reviewed by Pitchfork!"
+    puts "--------------------------"
+    puts "Every review collated for your eyes so you can treat your ears!"
+    puts "--------------------------"
+    puts "To access reviews:"
     menu
   end
   
@@ -26,7 +30,7 @@ class AlbumReview::CLI
       when "quit"
         goodbye
       else ""
-        puts "I don't understand your selection. Please enter the number again."
+        puts "I don't understand your selection. Please enter the number of your selection again."
         genre_albums
     end
     
@@ -37,7 +41,8 @@ class AlbumReview::CLI
   end
   
   def menu
-    puts "Please enter: 'list' for a list of albums or 'genre' for a list of genres. Enter 'quit' to exit at any point."
+    puts "Please enter 'list' for a list of albums or 'genre' for a list of genres. 
+    (Enter 'quit' to exit at any point.)"
     input = gets.strip.downcase
     case input
       when "genre"
@@ -51,6 +56,7 @@ class AlbumReview::CLI
         menu
       end
     end
+    
 end
   
 
