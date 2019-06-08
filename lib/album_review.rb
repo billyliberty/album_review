@@ -4,9 +4,9 @@ require_relative "album_review/CLI"
 require_relative "album_review/scraper"
 require_relative "album_review/genre"
 
-#require 'pry'
-#require 'nokogiri'
-#require 'open-uri'
+require 'pry'
+require 'nokogiri'
+require 'open-uri'
 
 require "./lib/album_review"
 
