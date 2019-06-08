@@ -12,6 +12,10 @@ class AlbumReview::CLI
   def genre_albums
     puts "1. Rap, 2. Rock, 3. Pop, 4. R&B, 5. Experimental"
   end
+  
+  def goodbye
+    puts "Goodbye!"
+  end
     
   
   def menu
@@ -23,7 +27,7 @@ class AlbumReview::CLI
       when "list"
         list_albums
       when "quit"
-        puts "Goodbye!"
+        goodbye
       end
     end
   
