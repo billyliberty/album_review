@@ -9,7 +9,6 @@ class AlbumReview::CLI
   end
   
   def list_albums
-    puts "Album List: (Enter number for full review)"
     @albums = AlbumReview::Albums.all
     @albums.each.with_index(1) do |album, i|
       puts "#{i}. #{album}"
@@ -18,15 +17,12 @@ class AlbumReview::CLI
   
   def menu_albums
     list_albums
-    input = nil
-    if input.to_i > 0 
-      puts @albums[input.to_i -1]
-    else input == ""
-      puts "Invalid response. Please enter number again."
+    input = gets.strip.downcase
+    case input
+      when input.to_i > 0 
+        puts @albums[input.to_i -1]
     end
   end
-  
-  
   
   def genre_albums
     puts "1. Rap, 2. Rock, 3. Pop, 4. R&B, 5. Experimental (or 'menu' to return to the main menu)"
@@ -66,6 +62,7 @@ class AlbumReview::CLI
       when "genre"
         genre_albums
       when "list"
+        puts "Album list. Please enter the number of the album for full review:"
         menu_albums
       when "quit"
         goodbye

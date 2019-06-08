@@ -17,9 +17,11 @@ class AlbumReview::Albums
   def self.all
     album_1 = self.new 
     album_1.album_name = "White Album"
+    album_1.artist = "Beatles"
     
     album_2 = self.new 
     album_2.album_name = "Black Album"
+    album_2.artist = "Jay-Z"
     
     [album_1, album_2]
   end
