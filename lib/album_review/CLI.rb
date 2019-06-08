@@ -2,7 +2,6 @@ class AlbumReview::CLI
   
   def call
     puts "Welcome to the best new albums as reviewed by Pitchfork!"
-    list_albums
     menu
   end
   
@@ -11,7 +10,7 @@ class AlbumReview::CLI
   end
   
   def menu
-    puts "Enter the number of the album for that album's review score."
+    puts "Please enter: 'list' for a list of albums or 'genre' for a list of genres."
   end
   
 end
