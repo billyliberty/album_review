@@ -1,4 +1,6 @@
 class AlbumReview::Scraper
   
   
+  
+  
 end
