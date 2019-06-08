@@ -9,9 +9,25 @@ class AlbumReview::CLI
     puts "PLACEHOLDER: Zuu by Denzel Curry"
   end
   
-  def menu
-    puts "Please enter: 'list' for a list of albums or 'genre' for a list of genres."
+  def genre_albums
+    puts "1. Rap, 2. Rock, 3. Pop, 4. R&B, 5. Experimental"
   end
+    
+  
+  def menu
+    puts "Please enter: 'list' for a list of albums or 'genre' for a list of genres. Enter 'quit' to exit."
+    input = gets.strip.downcase
+    case input
+      when "genre"
+        genre_albums
+      when "list"
+        list_albums
+      when "quit"
+        puts "Goodbye!"
+      end
+    end
   
 end
+  
+
   
