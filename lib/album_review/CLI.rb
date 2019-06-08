@@ -30,7 +30,7 @@ class AlbumReview::CLI
       when "quit"
         goodbye
       else ""
-        puts "I don't understand your selection. Please enter the number of your selection again."
+        puts "Selection not understood. Please enter the number of your selection again."
         genre_albums
     end
     
