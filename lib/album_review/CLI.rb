@@ -23,8 +23,10 @@ class AlbumReview::CLI
         puts "R&B"
       when "6" 
         puts "EXPERIMENTAL"
+      when "quit"
+        goodbye
       else ""
-        puts "I don't understand your selection. Please try again."
+        puts "I don't understand your selection. Please enter the number again."
         genre_albums
     end
     
@@ -35,7 +37,7 @@ class AlbumReview::CLI
   end
   
   def menu
-    puts "Please enter: 'list' for a list of albums or 'genre' for a list of genres. Enter 'quit' to exit."
+    puts "Please enter: 'list' for a list of albums or 'genre' for a list of genres. Enter 'quit' to exit at any point."
     input = gets.strip.downcase
     case input
       when "genre"
@@ -44,6 +46,9 @@ class AlbumReview::CLI
         list_albums
       when "quit"
         goodbye
+      else ""
+        puts "Invalid selection. Please try again."
+        menu
       end
     end
 end
