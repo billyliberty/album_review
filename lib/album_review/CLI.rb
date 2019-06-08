@@ -37,7 +37,7 @@ class AlbumReview::CLI
   end
   
   def goodbye
-    puts "Goodbye!"
+    puts "Until next time. Goodbye!"
   end
   
   def menu
