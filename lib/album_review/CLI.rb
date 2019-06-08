@@ -11,7 +11,7 @@ class AlbumReview::CLI
   def list_albums
     @albums = AlbumReview::Albums.all
     @albums.each.with_index(1) do |album, i|
-      puts "#{i}. #{album}"
+      puts "#{i}. #{album.name} - #{album.artist}"
     end
   end
   
