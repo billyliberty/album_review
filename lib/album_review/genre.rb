@@ -10,4 +10,8 @@ class AlbumReview::Genre
     @albums << album 
   end
   
+  def self.all 
+    puts "ALL GENRES"
+  end
+  
 end

@@ -24,7 +24,7 @@ class AlbumReview::CLI
         puts "POP"
       when "4" 
         puts "R&B"
-      when "6" 
+      when "5" 
         puts "EXPERIMENTAL"
       when "menu"
         menu
