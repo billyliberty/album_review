@@ -8,8 +8,8 @@ class AlbumReview::Scraper
     
     album_array.each do |album_info|
       attributes = {
-        album.name: album_info.css("h2.review__title-album").text,
-        album.artist: album_info.css("ul.review__title-artist").text,
+        title: album_info.css("h2.review__title-album").text,
+        artist: album_info.css("ul.review__title-artist").text,
         }
         album = AlbumReview::Albums.new(attributes)
       end
