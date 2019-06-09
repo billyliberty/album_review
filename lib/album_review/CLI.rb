@@ -20,6 +20,8 @@ class AlbumReview::CLI
     index = input.to_i -1
     if index.between?(0, 10)
       album = AlbumReview::Albums.all
+    end
+  end
       
   
   def review_list
