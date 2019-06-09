@@ -35,19 +35,10 @@ class AlbumReview::CLI
     puts "Please enter 'list' for a list of albums. 
     (Enter 'quit' to exit at any point.)"
     input = gets.strip.downcase
-    case input
-      when "list"
-        puts "Album list. Please enter the number of the album for full review:"
-        menu_albums
-      when "quit"
-        goodbye
-      else ""
-        puts "Invalid selection. Please try again."
-        menu
-      end
-    end
-  end
-end
+    
   
+end
+
+
 
   
