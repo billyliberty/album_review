@@ -5,38 +5,27 @@ class AlbumReview::CLI
     puts "--------------------------"
     puts "Every review collated for your eyes to read so you can treat your ears!"
     puts "--------------------------"
-    menu
+    album_list
   end
   
-  def list_albums
-    @albums = AlbumReview::Albums.all
-    @albums.each.with_index(1) do |album, i|
-      puts "#{i}. #{album.name} - #{album.artist}"
+  def album_list
+    AlbumReview::Albums.all.each do |index, album|
+      puts "#{index}. #{album.title} by #{album.artist}"
     end
   end
   
-  def menu_albums
-    list_albums
+  def get_albums
+    input = nil
     input = gets.strip.downcase
-    case input
-      when input.to_i > 0 
-        puts @albums[input.to_i -1]
-    end
-  end
-    
-  end
+    index = input.to_i -1
+    if index.between?(0, 10)
+      album = AlbumReview::Albums.all
+      
   
-  def goodbye
-    puts "Until next time. Goodbye!"
+  def review_list
+    puts "REVIEW SCRAPE RESULTS"
   end
-  
-  def menu
-    puts "To access reviews:"
-    puts "Please enter 'list' for a list of albums. 
-    (Enter 'quit' to exit at any point.)"
-    input = gets.strip.downcase
-    
-  
+
 end
 
 
