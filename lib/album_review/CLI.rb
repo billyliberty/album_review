@@ -7,8 +7,6 @@ class AlbumReview::CLI
     puts "--------------------------"
     puts "Every review collated for your eyes to read so you can treat your ears!"
     puts "--------------------------"
-    AlbumReview::Scraper.scrape_albums
-    albums
     album_list
     puts "For the review score of an album, please enter a number from 1-10."
     get_albums
@@ -25,17 +23,27 @@ class AlbumReview::CLI
   end
   
   def get_albums
-    input = nil
     input = gets.strip.downcase
     index = input.to_i -1
     if index.between?(0, 10)
-      album = AlbumReview::Albums.all
+      album = @albums[index]
+      puts "#{album.title}"
+      read_more(album)
+    elsif input == "exit"
+      goodbye
+    else 
+      puts "Invalid entry. Please try again."
+      get_albums
     end
   end
       
   
   def review_list
     puts "REVIEW SCRAPE RESULTS"
+  end
+  
+  def goodbye
+    puts "Until later!"
   end
 
 end
