@@ -1,4 +1,4 @@
-class AlbumReview::Genre 
+class AlbumReview::Review
   
   attr_accessor :albums
   
