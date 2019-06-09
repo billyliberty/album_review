@@ -7,39 +7,35 @@ class AlbumReview::CLI
     puts "--------------------------"
     puts "Every review collated for your eyes to read so you can treat your ears!"
     puts "--------------------------"
-    album_list
-    puts "For the review score of an album, please enter a number from 1-10."
-    get_albums
+    scrape_albums
+    menu
   end
   
-  def albums 
-    @albums = AlbumReview::Albums.all
-  end
+  def menu
+    puts "If you'd like to see a list of the latest reviews of the best new albums, please enter 'y' at the prompt."
     
+    input = gets.strip.downcase
+    
+    case input
+    when 'y'
+      list_albums
+    when 'exit'
+      goodbye
+    else
+      puts "Invalid entry!"
+      menu
+    end
+  end
+  
   def album_list
+    puts "Pitchfork thinks these albums are great!"
     @albums.each.with_index(1) do |album, index|
       puts "#{index}. #{album.title} by #{album.artist}"
     end
   end
-  
-  def get_albums
-    input = gets.strip.downcase
-    index = input.to_i -1
-    if index.between?(0, 10)
-      album = @albums[index]
-      puts "#{album.title}"
-      read_more(album)
-    elsif input == "exit"
-      goodbye
-    else 
-      puts "Invalid entry. Please try again."
-      get_albums
-    end
-  end
-      
-  
-  def review_list
-    puts "REVIEW SCRAPE RESULTS"
+    
+  def albums
+    @albums = AlbumReview::Albums.all
   end
   
   def goodbye
