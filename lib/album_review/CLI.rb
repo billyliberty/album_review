@@ -23,29 +23,6 @@ class AlbumReview::CLI
         puts @albums[input.to_i -1]
     end
   end
-  
-  def genre_albums
-    puts "1. Rap, 2. Rock, 3. Pop, 4. R&B, 5. Experimental (or 'menu' to return to the main menu)"
-    input = gets.strip.downcase
-    case input
-      when "1" 
-        puts "RAP"
-      when "2"
-        puts "ROCK"
-      when "3" 
-        puts "POP"
-      when "4" 
-        puts "R&B"
-      when "5" 
-        puts "EXPERIMENTAL"
-      when "menu"
-        menu
-      when "quit"
-        goodbye
-      else ""
-        puts "Selection not understood. Please enter the number of your selection again."
-        genre_albums
-    end
     
   end
   
@@ -55,12 +32,10 @@ class AlbumReview::CLI
   
   def menu
     puts "To access reviews:"
-    puts "Please enter 'list' for a list of albums or 'genre' for a list of genres. 
+    puts "Please enter 'list' for a list of albums. 
     (Enter 'quit' to exit at any point.)"
     input = gets.strip.downcase
     case input
-      when "genre"
-        genre_albums
       when "list"
         puts "Album list. Please enter the number of the album for full review:"
         menu_albums
@@ -71,6 +46,7 @@ class AlbumReview::CLI
         menu
       end
     end
+  end
 end
   
 
