@@ -4,7 +4,7 @@ class AlbumReview::Scraper
     
     page = Nokogiri::HTML(open("https://pitchfork.com/reviews/best/albums/"))
     
-    album_array = page.css(".div review")
+    album_array = page.css("div.review")
     
     album_array.each do |album_info|
       attributes = {

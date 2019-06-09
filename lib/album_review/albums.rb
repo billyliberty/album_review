@@ -8,11 +8,15 @@ class AlbumReview::Albums
     attributes.each do |k, v|
       self.send("#{k}=", v)
     end
-    @@all << self
+    self.save
   end
   
   def self.all
     @@all
+  end
+  
+  def save
+    @@all << self
   end
   
 end

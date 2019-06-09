@@ -29,15 +29,16 @@ class AlbumReview::CLI
   
   def album_list
     puts "Pitchfork thinks these albums are great!"
-    @albums.each.with_index(1) do |album, index|
-      puts "#{index}. #{album.title} by #{album.artist}"
+    @albums = AlbumReview::Albums.all
+    @albums.each.with_index(1) do |album, i|
+      puts "#{i}. #{album.title} by #{album.artist}"
     end
   end
   
   def scrape_albums
     AlbumReview::Scraper.scrape_albums
   end
-    
+  
   def albums
     @albums = AlbumReview::Albums.all
   end
