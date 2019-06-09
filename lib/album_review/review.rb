@@ -11,7 +11,7 @@ class AlbumReview::Review
   end
   
   def self.all 
-    puts "ALL GENRES"
+    puts ""
   end
   
 end
