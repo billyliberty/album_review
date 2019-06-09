@@ -18,7 +18,7 @@ class AlbumReview::CLI
     
     case input
     when 'y'
-      list_albums
+      album_list
     when 'exit'
       goodbye
     else
@@ -32,6 +32,10 @@ class AlbumReview::CLI
     @albums.each.with_index(1) do |album, index|
       puts "#{index}. #{album.title} by #{album.artist}"
     end
+  end
+  
+  def scrape_albums
+    AlbumReview::Scraper.scrape_albums
   end
     
   def albums
