@@ -7,9 +7,9 @@ class AlbumReview::CLI
     puts "--------------------------"
     puts "Every review collated for your eyes to read so you can treat your ears!"
     puts "--------------------------"
-    #scrape_albums
-    #scrape_reviews
-    scrape_all
+    scrape_albums
+    scrape_reviews
+    #scrape_all
     menu
   end
   
@@ -63,12 +63,12 @@ class AlbumReview::CLI
   end
   
   def scrape_reviews
-    AlbumReview::Scraper.scrape_reviews
+    AlbumReview::Scraper.scrape_reviews(albums)
   end
   
   def scrape_all
     scrape_albums
-    #scrape_reviews
+    scrape_reviews
   end
   
   def albums

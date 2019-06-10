@@ -16,8 +16,10 @@ class AlbumReview::Scraper
       end
     end
     
-  def self.scrape_reviews
-    page = Nokogiri::HTML(open(PITCHFORK_URL + album.url))
+  def self.scrape_reviews(album)
+    html = open(PITCHFORK_URL + album.url)
+    doc = Nokogiri::HTML(html)
+    
     score = doc.css("div.score-circle").text.strip
     album = AlbumReview::Albums.new(score)
     album.save
