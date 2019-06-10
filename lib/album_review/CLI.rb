@@ -12,13 +12,14 @@ class AlbumReview::CLI
   end
   
   def menu
-    puts "If you'd like to see a list of the latest reviews of the best new albums, please enter 'y' at the prompt."
+    puts "**If you'd like to see a list of the latest reviews of the best new albums, please enter 'y' at the prompt.**"
     
     input = gets.strip.downcase
     
     case input
     when 'y'
       album_list
+      album_info
     when 'exit'
       goodbye
     else
@@ -36,12 +37,33 @@ class AlbumReview::CLI
     end
   end
   
+  def album_info
+    puts "See the review score of the album by entering its number at the prompt!"
+    input = gets.strip
+    index = input.to_i - 1
+    if index.between?(0,11)
+      album = @albums[index]
+      puts "#{album.title} with a score of #{album.score}!"
+      #read_review
+    elsif input == "quit"
+      goodbye
+    else
+      puts "Invlaid entry!"
+      album_info
+    end
+  end
+  
   def scrape_albums
     AlbumReview::Scraper.scrape_albums
   end
   
   def albums
     @albums = AlbumReview::Albums.all
+  end
+  
+  def read_review
+    puts "Would you like to read the full review?"
+    puts "If so, enter 'y' at the prompt"
   end
   
   def goodbye
