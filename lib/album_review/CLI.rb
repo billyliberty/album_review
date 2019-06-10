@@ -6,7 +6,7 @@ class AlbumReview::CLI
     puts "Every review collated for your eyes to read so you can treat your ears!"
     puts "--------------------------"
     scrape_albums
-    scrape_reviews
+    #scrape_reviews
     menu
   end
   
@@ -16,7 +16,7 @@ class AlbumReview::CLI
     case input
     when 'y'
       album_list
-      #album_info
+      album_info
     when 'exit'
       goodbye
     else
@@ -30,6 +30,23 @@ class AlbumReview::CLI
     puts "------------------------------"
     AlbumReview::Albums.all.each.with_index(1) do |album, index|
       puts "#{index}. #{album.title} by #{album.artist} URL is #{album.url} #{album.score}"
+    puts "------------------------------"
+    end
+  end
+  
+  def album_info
+    puts "Reveal the review score of the album by entering its number at the prompt!"
+    input = gets.strip
+    album = AlbumReview::Albums.all[input.to_i - 1]
+    if !album 
+      puts "Invlaid entry! Please try again."
+      album_info
+    elsif
+      AlbumReview::Scraper.scrape_reviews(album)
+      puts "#{album.title} with a score of #{album.score}!"
+    else
+      input == "quit"
+      goodbye
     end
   end
   
@@ -37,9 +54,7 @@ class AlbumReview::CLI
     AlbumReview::Scraper.scrape_albums
   end
   
-  def scrape_reviews
-    AlbumReview::Scraper.scrape_reviews(album)
-  end
+  
   
   def read_review
     puts "Would you like to read the full review?"
