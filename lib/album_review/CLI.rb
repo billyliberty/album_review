@@ -28,7 +28,7 @@ class AlbumReview::CLI
     puts "Pitchfork thinks these albums are great!"
     puts "------------------------------"
     AlbumReview::Albums.all.each.with_index(1) do |album, index|
-      puts "#{index}. #{album.title} by #{album.artist} URL is #{album.url} #{album.score}"
+      puts "#{index}. #{album.title} by #{album.artist}"
     puts "------------------------------"
     end
   end
