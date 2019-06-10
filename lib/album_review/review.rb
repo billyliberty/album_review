@@ -1,3 +1,0 @@
-class AlbumReview::Review
-  
-end

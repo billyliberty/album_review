@@ -1,6 +1,6 @@
 class AlbumReview::Albums
   
-  attr_accessor :title, :artist, :genre, :score, :url
+  attr_accessor :title, :artist, :genre, :score, :url, :full_review
   
   @@all =[]
   
