@@ -1,6 +1,6 @@
 # AlbumReview
 
-Welcome to reviews by Pitchfork! This appplication collates Pitchfork's reviews of the best new albums currently out. 
+Welcome to reviews by Pitchfork! This appplication collates Pitchfork's reviews of the best new albums currently out and provides a simple menu interface to get just the information you want.
 
 ## Installation
 
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Download this file from the link and run inside your local text editor!
 
 ## Development
 
