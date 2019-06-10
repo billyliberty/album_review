@@ -20,9 +20,7 @@ class AlbumReview::Scraper
     html = open(PITCHFORK_URL + album.url)
     doc = Nokogiri::HTML(html)
     
-    score = doc.css("div.score-circle").text.strip
-    album = AlbumReview::Albums.new(score)
-    album.save
+    album.score = doc.css("div.score-circle").text.strip
   end
   
 end
