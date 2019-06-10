@@ -83,14 +83,13 @@ class AlbumReview::CLI
     end
   
   def goodbye
-    puts ""
     puts "Until later!"
   end
   
   def full_review
-    puts "test"
+    puts "Here is the review: test"
     puts ""
     puts ""
-    menu
+    puts menu
   end
 end

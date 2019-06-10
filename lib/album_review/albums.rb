@@ -1,16 +1,15 @@
 class AlbumReview::Albums
   
-  attr_accessor :title, :artist, :genre, :score, :url, :full_review
+  attr_accessor :title, :artist, :score, :url, :review
   
   @@all =[]
   
   def initialize(title, artist, url)
     @title = title
     @artist = artist
-    @genre = genre
     @score = score
     @url = url
-    @full_review = full_review
+    @review = review
     
   end
   

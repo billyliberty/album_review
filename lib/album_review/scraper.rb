@@ -21,6 +21,7 @@ class AlbumReview::Scraper
     doc = Nokogiri::HTML(html)
     
     album.score = doc.css("div.score-circle").text.strip
+    album.review = doc.css(".review-detail__article-content").text.strip
   end
   
 end
