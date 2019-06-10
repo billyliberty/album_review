@@ -4,11 +4,14 @@ class AlbumReview::Albums
   
   @@all =[]
   
-  def initialize(attributes)
-    attributes.each do |k, v|
-      self.send("#{k}=", v)
-    end
-    self.save
+  def initialize(title, artist, url)
+    @title = title
+    @artist = artist
+    @genre = genre
+    @score = score
+    @url = url
+    @full_review = full_review
+    
   end
   
   def self.all
