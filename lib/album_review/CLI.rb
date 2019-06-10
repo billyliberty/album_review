@@ -7,7 +7,9 @@ class AlbumReview::CLI
     puts "--------------------------"
     puts "Every review collated for your eyes to read so you can treat your ears!"
     puts "--------------------------"
-    scrape_albums
+    #scrape_albums
+    #scrape_reviews
+    scrape_all
     menu
   end
   
@@ -33,7 +35,7 @@ class AlbumReview::CLI
     puts "------------------------------"
     @albums = AlbumReview::Albums.all
     @albums.each.with_index(1) do |album, i|
-      puts "#{i}. #{album.title} by #{album.artist} URL is #{album.url}"
+      puts "#{i}. #{album.title} by #{album.artist} URL is #{album.url} #{album.score}"
     end
   end
   
@@ -60,12 +62,17 @@ class AlbumReview::CLI
     AlbumReview::Scraper.scrape_albums
   end
   
-  def albums
-    @albums = AlbumReview::Albums.all
+  def scrape_reviews
+    AlbumReview::Scraper.scrape_reviews
   end
   
-  def reviews
-    @reviews = AlbumReview::Review.all
+  def scrape_all
+    scrape_albums
+    #scrape_reviews
+  end
+  
+  def albums
+    @albums = AlbumReview::Albums.all
   end
   
   def read_review

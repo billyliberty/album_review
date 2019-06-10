@@ -20,6 +20,3 @@ class AlbumReview::Albums
   end
   
 end
-    
-  
-  
