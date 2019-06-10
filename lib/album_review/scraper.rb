@@ -12,7 +12,7 @@ class AlbumReview::Scraper
       attributes = {
         title: album_info.css("h2.review__title-album").text,
         artist: album_info.css("ul.review__title-artist").text,
-        url: album_info.css("a").attribute("href").value
+        url: album_info.css("a").attr("href").value
         }
         album = AlbumReview::Albums.new(attributes)
       end

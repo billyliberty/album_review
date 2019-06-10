@@ -33,7 +33,7 @@ class AlbumReview::CLI
     puts "------------------------------"
     @albums = AlbumReview::Albums.all
     @albums.each.with_index(1) do |album, i|
-      puts "#{i}. #{album.title} by #{album.artist}"
+      puts "#{i}. #{album.title} by #{album.artist} URL is #{album.url}"
     end
   end
   
@@ -45,8 +45,8 @@ class AlbumReview::CLI
       album = @albums[index]
       puts "************"
       puts "#{album.title} with a score of:"
-      score
-      puts "************"
+      #score
+      puts "#{album.score}!"
       read_review
     elsif input == "quit"
       goodbye
