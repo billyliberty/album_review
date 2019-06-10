@@ -44,7 +44,7 @@ class AlbumReview::CLI
     if index.between?(0,11)
       album = @albums[index]
       puts "************"
-      puts "#{album.title} with a score of #{album.score} and URL of #{album.url}!"
+      puts "#{album.title} with a score of #{review.score} and URL of #{album.url}!"
       puts "************"
       read_review
     elsif input == "quit"

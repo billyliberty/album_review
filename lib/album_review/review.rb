@@ -1,17 +1,22 @@
 class AlbumReview::Review
   
-  attr_accessor :albums
+  attr_accessor :score, :full_review
   
-  def initialize()
-    @albums = []
+  @@all =[]
+  
+  def initialize(attributes)
+    attributes.each do |k, v|
+      self.send("#{k}=", v)
+    end
+    self.save
   end
   
-  def add_albums
-    @albums << album 
+  def self.all
+    @@all
   end
   
-  def self.all 
-    puts ""
+  def save
+    @@all << self
   end
   
 end

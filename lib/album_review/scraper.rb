@@ -24,10 +24,10 @@ class AlbumReview::Scraper
       
       review_array each do |review_info|
         attributes = {
-          score: review_info.css("div.score-circle")
-          full_review: review_info.(".review-detail__article-content")
+          score: review_info.css("div.score-circle").text,
+          full_review: review_info.css(".review-detail__article-content").text          
           }
-         review = AlbumReview::Review.new(attributes)
+          review = AlbumReview::Review.new(attributes)
        end
      end
   
