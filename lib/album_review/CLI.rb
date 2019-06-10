@@ -2,7 +2,6 @@ class AlbumReview::CLI
   
   def call
     scrape_albums
-    #scrape_reviews
     menu
   end
   
@@ -35,7 +34,7 @@ class AlbumReview::CLI
   end
   
   def album_info
-    puts "Reveal the review score of the album by entering its number at the prompt!"
+    puts "Reveal the review score and the full review of the album by entering its number at the prompt!"
     input = gets.strip
     album = AlbumReview::Albums.all[input.to_i - 1]
     if 
@@ -48,7 +47,9 @@ class AlbumReview::CLI
       puts ""
       puts "#{album.title} with a score of #{album.score}!"
       puts ""
-      read_review
+      puts "Review: #{album.review}"
+      puts ""
+      menu
     elsif 
       input == "list"
       album_list
@@ -62,34 +63,9 @@ class AlbumReview::CLI
     AlbumReview::Scraper.scrape_albums
   end
   
-  def read_review
-    puts "Would you like to read the full review?"
-    puts ""
-    puts "If so, enter 'y' at the prompt or 'list' to return to the list. Enter 'quit' to quit."
-    puts ""
-    input = gets.strip.downcase
-    case input
-      when "y"
-        full_review
-      when "list"
-        album_list
-        album_info
-      when "quit"
-        goodbye
-      else
-        puts "Invalid entry!"
-        read_review
-      end
-    end
   
   def goodbye
     puts "Until later!"
   end
   
-  def full_review
-    puts "Here is the review: test"
-    puts ""
-    puts ""
-    puts menu
-  end
 end
