@@ -15,20 +15,5 @@ class AlbumReview::Scraper
         album = AlbumReview::Albums.new(attributes)
       end
     end
-    
-    def self.scrape_reviews
-      
-      page_reviews = Nokogiri::HTML(open(album.url))
-      
-      review_array = page_reviews.css("div.review-detail-page")
-      
-      review_array each do |review_info|
-        attributes = {
-          score: review_info.css("div.score-circle").text,
-          full_review: review_info.css(".review-detail__article-content").text          
-          }
-          review = AlbumReview::Review.new(attributes)
-       end
-     end
   
 end
