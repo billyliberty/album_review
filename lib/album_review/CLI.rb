@@ -38,17 +38,19 @@ class AlbumReview::CLI
   end
   
   def album_info
-    puts "See the review score of the album by entering its number at the prompt!"
+    puts "Reveal the review score of the album by entering its number at the prompt!"
     input = gets.strip
     index = input.to_i - 1
     if index.between?(0,11)
       album = @albums[index]
+      puts "************"
       puts "#{album.title} with a score of #{album.score}!"
-      #read_review
+      puts "************"
+      read_review
     elsif input == "quit"
       goodbye
     else
-      puts "Invlaid entry!"
+      puts "Invalid entry!"
       album_info
     end
   end
@@ -63,8 +65,21 @@ class AlbumReview::CLI
   
   def read_review
     puts "Would you like to read the full review?"
-    puts "If so, enter 'y' at the prompt"
-  end
+    puts "If so, enter 'y' at the prompt or 'list' to return to the list. Enter 'quit' to quit."
+    input = gets.strip.downcase
+    case input
+      when "y"
+        puts "REVIEW"
+      when "list"
+        album_list
+        album_info
+      when "quit"
+        goodbye
+      else
+        puts "Invalid entry!"
+        read_review
+      end
+    end
   
   def goodbye
     puts "Until later!"
