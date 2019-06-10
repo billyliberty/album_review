@@ -12,7 +12,7 @@ class AlbumReview::CLI
   end
   
   def menu
-    puts "**If you'd like to see a list of the latest reviews of the best new albums, please enter 'y' at the prompt.**"
+    puts "**If you'd like to see a list of the latest reviews of the best new albums, enter 'y' at the prompt.**"
     
     input = gets.strip.downcase
     
